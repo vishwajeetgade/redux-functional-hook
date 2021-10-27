@@ -1,22 +1,25 @@
-import logo from './logo.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {actionCreators} from './store/actions/'
 import './App.css';
 
 function App() {
+  const amount = useSelector(state => state.amountReducer)
+  const dispatch = useDispatch();
+  const {Increase, Decrease} = bindActionCreators(actionCreators ,dispatch)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>Amount - {amount}</h3>
+        <div className="btn-div">
+          <div>
+            <button disabled={!amount} onClick={() => Decrease(100)}>-</button>
+          </div>
+          <div><p>Change Amount</p></div>
+          <div>
+            <button onClick={() => Increase(100)}>+</button>
+          </div>
+        </div>
       </header>
     </div>
   );

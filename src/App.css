@@ -28,11 +28,19 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-div button {
+  background-color: blueviolet;
+  color: white;
+  width: 3em;
+  margin: 0 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
 }
